@@ -1,0 +1,111 @@
+#TRY TO BRAKE MY PRORAMM
+
+#	hashtage was introduced by me to coment on rt files have fun with that :D
+
+#	!!!R IS THE RESOLUTION!!!
+
+#	Rules: ONE PER RT FILE
+#	Example-> one letter folowed by a space number 2nd space and 2nd number
+
+R 720 720
+
+#ambient ligthin only should appera once
+#	Rull intesity should be in range of 1 to 0
+#	RGB color range 3 numbers in range from 0 to 255
+#	255,255,255
+#	example
+
+A 0.4 100,240,100
+
+#	RULLES FOR ALL THE OBJECTS
+#	THESE OBJECT CAN APPEAR AS MANY TIMES AS YOU LIKE
+#	OR NOT APPER AT ALL
+#	CORDINATES ARE REPRESENTED BY 3 FLOATING POINT NUMBERS
+#	SPERAITED BY COMMAS
+#	SURFACE NORMAL VECTOR MODULES ARE EXPECTED TO BE == 1
+#	RGB VALUES ARE 3 NUMBERS IN THE RANG OF 0 TO 255
+#	DIAMETER, HEIGHT, SIDE SIZE ARE ONE FLOATING POINT NUMBER
+
+c 5,5,5 -0.57,-0.57,-0.57 0 
+
+#sp	sphear can appera as many times as you wish
+#	represent by letres "sp"
+#	3 floats to represent cordinates of the center
+#	12,2,0
+#	radius float must be positive
+#	23
+#	RGB* color range 3 numbers in range from 0 to 255
+#	100,23,122
+#	example
+
+sp 24036,2483,200000 2 255,255,2
+
+#tr	triangle can appera as many times as you like
+#	cordinates of edge 1
+#	12,2,2
+#	cordinates of edge 2
+#	123.2,1,-42
+#	cordinates of edge 3
+#	12.2,0,23
+#	RGB color range 3 numbers in range from 0 to 255
+#	100,23,122
+#	example
+
+tr 2,0,0 -2,0,0 0,0,2 255,0,123
+
+#cy	cylinder can appear as many times as you like
+#	cordinates of cy center 3 floats sperate by comas
+#	12,23,2
+#	"normal vector*"
+#	-0.461197,-0.883962,0.076866
+#	next is dyameter which is a float
+#	12.2
+#	then the height of the cylinder is a float
+#	2.2
+#	RGB color range 3 numbers in range from 0 to 255
+#	100,23,122
+#	example
+
+cy 2,4,4.2 0,1,0 0.5 2 255,0,0
+
+#sq	square can appear as many times as you like
+#	cordinates of sq center
+#	1.2,123,2
+#	normal
+#	0,1,0
+#	size of the side
+# 	12.2
+#	RGB 
+#	244,0,23
+#	example
+
+sq 1.2,32,2 0,1,0 12 23,9,0
+
+#pl	plain
+#	cordinates of the center of the plain
+#	1,2,4
+#	normal vector
+#	0,-1,0
+#	RGB color
+#	255,2,12
+#	example
+
+pl 2,23,2 0,-1,0 233,233,55
+
+
+
+
+
+
+#	"normal vector" is the orentation of a object
+#	how is it rotaed in 3d space?
+#	WARNING 
+#	the lebgth of the normal which is calculated by squaring all 3 numbers and 
+#	adding all the numbers and doing a sqrt from the resulting number
+#	has to be exactly == 1
+#	to make it easier to test normal run make dround to be able to
+#	pass any value you like in the normal and miniRT will proportunaly
+#	convert it to a a module of 1"
+#	OR use the norm programm in src/norm
+#
+#	RGB R = red G = green B = blue

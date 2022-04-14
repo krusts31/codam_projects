@@ -1,0 +1,92 @@
+#condition: service_healthy
+#depends_on:
+#thse 2 settings are used to make the container not to quit os that is == docker run -itd
+version: "3"
+
+services:
+
+  nginx:
+    healthcheck:
+      test: curl --insecure --fail https://localhost || exit 1
+      interval: 30s
+      timeout: 10s
+      retries: 1
+    container_name: nginx_container
+    hostname: nginx
+    build: requirements/nginx
+    tty: true
+    stdin_open: true
+    depends_on:
+      - wordpress
+    networks:
+      - inception
+    ports:
+      - "443:443"
+    environment:
+      OPENSSL_PASSWORD:          ${OPENSSL_PASSWORD}
+
+  wordpress:
+    container_name: wordpress_container
+    depends_on:
+      - mariadb
+    hostname: wordpress
+    build: requirements/wordpress
+    tty: true
+    stdin_open: true
+    networks:
+      - inception
+    environment:
+      WORDPRESS_URL:             ${WORDPRESS_URL}
+      WORDPRESS_TITLE:           ${WORDPRESS_TITLE}
+      WORDPRESS_ADMIN:           ${WORDPRESS_ADMIN}
+      WORDPRESS_ADMIN_PASSWORD:  ${WORDPRESS_ADMIN_PASSWORD}
+      WORDPRESS_ADMIN_EMAIL:     ${WORDPRESS_ADMIN_EMAIL}
+      WORDPRESS_DATABASE_NAME:   ${WORDPRESS_DATABASE_NAME}
+      WORDPRESS_USER:            ${WORDPRESS_USER}
+      WORDPRESS_USER_EMAIL:      ${WORDPRESS_USER_EMAIL}
+      WORDPRESS_USER_ROLE:       ${WORDPRESS_USER_ROLE}
+      WORDPRESS_USER_PASSWORD:   ${WORDPRESS_USER_PASSWORD}
+      MARIADB_USER:              ${MARIADB_USER}
+      MARIADB_USER_PASSWORD:     ${MARIADB_USER_PASSWORD}
+      WORDPRESS_DATABASE_NAME:   ${WORDPRESS_DATABASE_NAME}
+      MARIADB_HOST_NAME:         ${MARIADB_HOST_NAME}
+
+  mariadb:
+    healthcheck:
+      test: mariadb --user=$MARIADB_USER --password=$MARIADB_USER_PASSWORD -e "show databases;" || exit 1
+      interval: 30s
+      timeout: 10s
+      retries: 1
+    container_name: mariadb_container
+    hostname: mariadb
+    build: requirements/mariadb
+    tty: true
+    stdin_open: true
+    networks:
+      - inception
+    environment:
+      MARIADB_USER:              ${MARIADB_USER}
+      MARIADB_USER_PASSWORD:     ${MARIADB_USER_PASSWORD}
+      WORDPRESS_DATABASE_NAME:   ${WORDPRESS_DATABASE_NAME}
+      MARIADB_ROOT_PASSWORD:     ${MARIADB_ROOT_PASSWORD}
+
+  vsftpd:
+    container_name: vsftpd_container
+    hostname: vsftpd
+    build: requirements/bonus/vsftpd
+    tty: true
+    stdin_open: true
+    networks:
+      - inception
+    environment:
+      VSFPTD_USER:               ${VSFPTD_USER}
+      VSFPTD_PASSWORD:           ${VSFPTD_PASSWORD}
+      VSFPTD_GROUP:              ${VSFPTD_GROUP}
+    ports:
+      -  "20:20"
+      -  "21:21"
+
+networks:
+  inception:
+    driver: bridge
+    name: inception

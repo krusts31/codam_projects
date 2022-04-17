@@ -1,11 +1,9 @@
 FROM alpine:3.15
-RUN apk update && apk upgrade
-#install some utils
-RUN apk add --no-cache openrc \
-	mariadb-client
 
-#install php
-RUN apk add --no-cache php8 \
+RUN apk update && apk upgrade
+
+RUN apk add --no-cache mariadb-client \
+    php8 \
     php8-common \
     php8-fpm \
     php8-pdo \
@@ -35,6 +33,7 @@ RUN ln -s /usr/bin/php8 /usr/bin/php
 RUN mkdir -p /var/www
 
 COPY start_wp.sh .
+
 COPY www.conf /etc/php8/php-fpm.d/
 
 RUN echo 'nameserver 8.8.8.8' >> /etc/resolv.conf; \

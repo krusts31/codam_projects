@@ -1,12 +1,12 @@
-FROM	alpine:3.15
+FROM alpine:3.15
 
-RUN	apk add --no-cache vsftpd
+RUN apk update && apk upgrade && apk add --no-cache \
+        vsftpd
 
-EXPOSE 20 21
+COPY vsftpd.conf /tmp/vsftpd.conf
 
-COPY	vsftpd.conf	/etc/vsftpd
-COPY	setup_vsftpd.sh	.
+COPY install.sh /tmp/install.sh
 
-CMD sh setup_vsftpd.sh
+COPY vsftpd.baner /etc/vsftpd.baner
 
-#VOLUME	["/sys/fs/cgroup"]
+CMD sh /tmp/install.sh

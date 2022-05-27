@@ -1,48 +1,70 @@
 FROM alpine:3.15
 
-RUN apk update && apk upgrade
-
-RUN apk add --no-cache mariadb-client \
-    php8 \
-    php8-common \
-    php8-fpm \
-    php8-pdo \
-    php8-opcache \
-    php8-zip \
-    php8-phar \
-    php8-iconv \
-    php8-cli \
-    php8-curl \
-    php8-openssl \
-    php8-mbstring \
-    php8-tokenizer \
-    php8-fileinfo \
-    php8-json \
-    php8-xml \
-    php8-xmlwriter \
-    php8-simplexml \
-    php8-dom \
-    php8-pdo_mysql \
-    php8-pdo_sqlite \
-    php8-tokenizer \
-    php8-mysqli \
-    php8-pecl-redis
+RUN	apk update && apk upgrade && apk add --no-cache \
+	wget	\
+	mariadb-client	\
+	php8-pecl-imagick \
+	php8		\
+	php8-fpm	\
+	php8-ftp 	\
+	php8-bcmath	\
+	php8-bz2 	\
+	php8-calendar	\
+	php8-ctype	\
+	php8-curl	\
+	php8-dom	\
+	php8-exif	\
+	php8-fileinfo	\
+	php8-gd		\
+	php8-gmp	\
+	php8-iconv	\
+	php8-imap	\
+	php8-intl	\
+	php8-json	\
+	php8-mbstring	\
+	php8-pecl-mcrypt \
+	php8-pecl-memcache \
+	php8-mysqli	\
+	php8-mysqlnd	\
+	php8-openssl	\
+	php8-pcntl	\
+	php8-pdo	\
+	php8-pdo_mysql	\
+	php8-pdo_pgsql	\
+	php8-pdo_sqlite \
+	php8-pgsql	\
+	php8-phar	\
+	php8-posix	\
+	php8-session	\
+	php8-shmop	\
+	php8-simplexml	\
+	php8-soap	\
+	php8-sockets	\
+	php8-sodium	\
+	php8-sqlite3	\
+	php8-sysvsem	\
+	php8-sysvshm	\
+	php8-tokenizer	\
+	php8-xml	\
+	php8-xmlreader	\
+	php8-xmlwriter	\
+	php8-xsl	\
+	php8-zip	\
+	php8-zlib	
+	
+RUN	adduser -S nginx &&	addgroup -S nginx
 
 RUN ln -s /usr/bin/php8 /usr/bin/php
 
-RUN mkdir -p /var/www
+RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 
-COPY start_wp.sh .
+RUN chmod +x wp-cli.phar
+RUN cp wp-cli.phar /usr/bin/wp
 
-COPY www.conf /etc/php8/php-fpm.d/
+WORKDIR /var/www/html
 
-RUN echo 'nameserver 8.8.8.8' >> /etc/resolv.conf; \
-	wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
-	chmod +x wp-cli.phar && \
-	mv wp-cli.phar /usr/local/bin/wp
+COPY php-fpm.conf /etc/php8/php-fpm.conf
+COPY www.conf /etc/php8/php-fpm.d/www.conf
+COPY install.sh /tmp/install.sh
 
-RUN rm -rf /var/cache/apk/*
-
-RUN adduser -D -g 'www' www;
-
-CMD sh start_wp.sh
+CMD sh /tmp/install.sh

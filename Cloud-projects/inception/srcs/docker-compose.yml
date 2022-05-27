@@ -1,38 +1,33 @@
-#condition: service_healthy
-#depends_on:
-#thse 2 settings are used to make the container not to quit os that is == docker run -itd
 version: "3"
 
 services:
 
   nginx:
-    healthcheck:
-      test: curl --insecure --fail https://localhost || exit 1
-      interval: 30s
-      timeout: 10s
-      retries: 1
-    container_name: nginx_container
+    restart: always
+    container_name: nginx
     hostname: nginx
     build: requirements/nginx
-    tty: true
-    stdin_open: true
+    image: nginx
     depends_on:
       - wordpress
     networks:
       - inception
     ports:
       - "443:443"
-    environment:
-      OPENSSL_PASSWORD:          ${OPENSSL_PASSWORD}
+    volumes:
+      - wordpress_vol:/var/www/html
 
   wordpress:
-    container_name: wordpress_container
+    restart: always
+    image: wordpress
+    container_name: wordpress
     depends_on:
+      - vsftpd
       - mariadb
     hostname: wordpress
     build: requirements/wordpress
-    tty: true
-    stdin_open: true
+    volumes:
+      - wordpress_vol:/var/www/html
     networks:
       - inception
     environment:
@@ -50,18 +45,18 @@ services:
       MARIADB_USER_PASSWORD:     ${MARIADB_USER_PASSWORD}
       WORDPRESS_DATABASE_NAME:   ${WORDPRESS_DATABASE_NAME}
       MARIADB_HOST_NAME:         ${MARIADB_HOST_NAME}
+      VSFPTD_USER:               ${VSFPTD_USER}
+      VSFPTD_PASSWORD:           ${VSFPTD_PASSWORD}
+      VSFPTD_HOST:               ${VSFPTD_HOST}
 
   mariadb:
-    healthcheck:
-      test: mariadb --user=$MARIADB_USER --password=$MARIADB_USER_PASSWORD -e "show databases;" || exit 1
-      interval: 30s
-      timeout: 10s
-      retries: 1
-    container_name: mariadb_container
+    restart: always
+    container_name: mariadb
     hostname: mariadb
+    image: mariadb
+    volumes:
+      - mariadb_vol:/var/lib/mysql
     build: requirements/mariadb
-    tty: true
-    stdin_open: true
     networks:
       - inception
     environment:
@@ -71,21 +66,39 @@ services:
       MARIADB_ROOT_PASSWORD:     ${MARIADB_ROOT_PASSWORD}
 
   vsftpd:
-    container_name: vsftpd_container
+    restart: always
+    image: vsftpd
+    container_name: vsftpd
     hostname: vsftpd
     build: requirements/bonus/vsftpd
-    tty: true
-    stdin_open: true
+    volumes:
+      - wordpress_vol:/var/www/html
     networks:
       - inception
     environment:
       VSFPTD_USER:               ${VSFPTD_USER}
       VSFPTD_PASSWORD:           ${VSFPTD_PASSWORD}
-      VSFPTD_GROUP:              ${VSFPTD_GROUP}
     ports:
-      -  "20:20"
-      -  "21:21"
+      - "21:21"
+      - "21100-21110:21100-21110"
 
 networks:
   inception:
     driver: bridge
+    name: inception
+
+volumes:
+  wordpress_vol:
+    driver: local
+    name: wordpress_vol
+    driver_opts:
+      type: none 
+      o: bind
+      device: '${HOME}/data/wordpress'
+  mariadb_vol:
+    driver: local
+    name: maraidb_vol
+    driver_opts:
+      type: none 
+      o: bind
+      device: '${HOME}/data/mariadb'

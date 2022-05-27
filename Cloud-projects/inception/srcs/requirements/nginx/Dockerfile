@@ -1,19 +1,20 @@
 FROM alpine:3.15
-RUN apk update && apk upgrade
 
-RUN apk add --no-cache nginx
+RUN apk update && apk upgrade && apk add --no-cache \
+  nginx \
+  openssl
 
-RUN adduser -D -g 'www' www; \
-	mkdir /www; \
-	chown -R www:www /var/lib/nginx; \
-	chown -R www:www /www;
+RUN mkdir /etc/nginx/ssl
 
-COPY local.conf /etc/nginx/nginx.conf
+RUN openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes \
+        -out /etc/nginx/ssl/alkrusts.pem \
+        -keyout /etc/nginx/ssl/alkrusts.key \
+        -subj "/C=NL/ST=Amsterdam/L=Amsterdam/ School/OU=alkrusts/CN=alkrusts/"
 
-COPY ssl/ca.key /etc/ssl
+RUN mkdir -p /run/nginx
 
-COPY ssl/ca.pem /etc/ssl/ca.pam
+COPY default.conf /etc/nginx/http.d/default.conf
 
-RUN rm -rf /var/cache/apk/*
+COPY install.sh /tmp/install.sh
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD sh /tmp/install.sh

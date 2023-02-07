@@ -11,19 +11,18 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <sys/types.h>
 
 char	*ft_strrchr(const char *str, int c)
 {
-	size_t	count;
+	ssize_t	count;
 
 	count = ft_strlen(str);
 	while (count >= 0)
 	{
 		if (str[count] == (char)c)
 			return ((char *)str + count);
-		if (count == 0)
-			return (0);
 		count--;
 	}
-	return (0);
+	return (NULL);
 }

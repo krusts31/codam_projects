@@ -1,4 +1,10 @@
 # C-projects
+
+kernel v:
+6.0.12-76060006-generic
+gcc --version
+gcc (Ubuntu 11.3.0-1ubuntu1~22.04) 11.3.0
+
 [if you like this guy you will like me](https://www.youtube.com/watch?v=s7wLYzRJt3s)
 
 __42__ is notorious for having a lot of `C` projects.

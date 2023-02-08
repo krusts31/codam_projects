@@ -1,5 +1,34 @@
 # libft
 
+##### To use the lib
+
+```sh
+git clone
+make
+gcc main.c ./libft.a
+```
+
+##### Example
+```C
+#include "libft.h"
+#include <unistd.h>
+
+int	main()
+{
+	char	*hello = "Hello ";
+	char	*world = "World!";
+	char	*hello_world;
+
+	hello_world = ft_strjoin(hello, world);
+	if (!hello_world)
+		return (1);
+	write(1, hello_world, ft_strlen(hello_world));
+	return (0);
+}
+```
+
+### My journey
+
 My very first library! This is also the first project I ever did at Codam.
 
 I failed 13 times on this project! That's why I love 42, you can just retry and try again till you succeed. What I about:

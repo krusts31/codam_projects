@@ -24,7 +24,7 @@ static int	check_variable_name(char *name)
 	if (name == NULL || name[0] == 0 || name[0] == '=')
 		return (EXIT_FAILURE);
 	s = ft_strchr(name, '+');
-	if (s && s + 1 && *(s + 1) != '=')
+	if (s && *(s + 1) != '=')
 		return (EXIT_FAILURE);
 	while (*name && *name != '=')
 	{

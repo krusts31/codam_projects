@@ -94,7 +94,7 @@ SRC = main.c \
 OBJ = $(addprefix $(ODIR)/$(SDIR)/, $(SRC:.c=.o))
 
 LIBFT = libft
-READLINE =	-ltermcap -lreadline \
+READLINE =	-lreadline \
 			-L/usr/local/opt/readline/lib \
 			-L$(HOME)/.brew/Cellar/readline/8.1.1/lib
 LIBS = -L $(LIBFT) -lft $(READLINE)

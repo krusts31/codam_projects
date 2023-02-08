@@ -1,12 +1,30 @@
 # libft
 
-My very first library! This is also my first porject I ever did at Codam.
+My very first library! This is also the first project I ever did at Codam.
 
-I __failed 13 times__ on this project! Thas why I love 42, you can just retry and try again till you succseed.
-What I about:
-1. I learned about the baisics of `Makefile`.
-2. The coding format standart.
-3. How to handle edge cases in C
-3.1. `int` overflows.
-3.2.
-I learned about how to format code, how to handle edge cases in C, like integer over flows, how to protect against malloc returning NULL, how to '\0' my string, when to use memmove, how to free memmory, how to spot memmory leaks, how to use pointers. I learned how to use exsiting unit tests to test my code, I learned about unnecessary header inclusin about out of bounds memmory, when to use size_t. To work with linked lists. How to make a baisic Makefile, how to use header guards. I larned about type casting, what do `-Wall -Werror -Wextra.` How to turn .c files in to .o files and link them in to a lib.
+I failed 13 times on this project! That's why I love 42, you can just retry and try again till you succeed. What I about:
+
+1. I learned about the basics of Makefile.
+2. The coding format standards.
+3. How to handle user input.
+4. I learned about interesting things in C like:
+
+> INT OVERFLOWS
+>
+> DEREFERENCING NULL
+> 
+> MEMORY LEAKS
+> 
+> HEAP VS STACK
+> 
+> OUT-OF-BOUNDS MEMORY ACCESS
+
+5. Learned about \0 strings.
+6. When to use memmove vs memcpy.
+7. How to compile .c file into .o files.
+8. How to link all the .o files into.a file.
+9. The benefits of compiling with -Wall -Werror -Wextra..
+10. Learned the basics of gdb, lldb and about -g and -fsanitize=address.
+11. Learned about unnecessary header inclusion.
+12. The basics of linked lists.
+13. When to use header guards.

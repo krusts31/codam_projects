@@ -48,12 +48,12 @@ I failed 13 times on this project! That's why I love 42, you can just retry and 
 > 
 > OUT-OF-BOUNDS MEMORY ACCESS
 
-5. Learned about \0 strings.
+5. Learned about `\0` strings.
 6. When to use memmove vs memcpy.
-7. How to compile .c file into .o files.
-8. How to link all the .o files into.a file.
+7. How to compile `.c` file into `.o` files.
+8. How to link all the `.o` files into `.a` file.
 9. The benefits of compiling with -Wall -Werror -Wextra..
-10. Learned the basics of gdb, lldb and about -g and -fsanitize=address.
+10. Learned the basics of `gdb`, `lldb` and about `-g` and `-fsanitize=address`.
 11. Learned about unnecessary header inclusion.
 12. The basics of linked lists.
 13. When to use header guards.

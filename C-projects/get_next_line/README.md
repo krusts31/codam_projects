@@ -1,42 +1,16 @@
-# ft_printf
+# get_next_line
+Read a line from a file and puts it in to a `char *`
 
-##### To use the lib
+##### To use the get_next_line
 
 ```sh
 git clone
-make
-gcc main.c ./libftprintf.a
+gcc get_next_line.c get_next_line_utils.c main.c
+./a.out file_1
 ```
-
-##### Example
-```C
-#include "ft_printf.h"
-
-int	main()
-{
-	int	ret;
-
-  ret =	ft_printf("p0 % .3s\n", "cccc");
-  ret =	ft_printf("pp %.50d\n", 10000);
-  ret =	ft_printf("p1 %.4s\n", "cccc");
-  ret =	ft_printf("p2 %.10s\n", "cccc");
-  ret =	ft_printf("p3 %.4s\n", NULL);
-  ft_printf("%d", ret);
-  return (0);
-}
-```
-
-##### conversions:
-
-`dcspiuxX%`
-
-##### flags:
-
-`-0.*0-9`
 
 ##### my jurney:
-1. I learned about creating maps function pointer array.
-2. I learned how to write a more complicated C program.
-3. Learned how to free memory in case of an error.
-4. Learned about `va_list` or variadic lists.
-5. Learned a lot about printf.
+1. Learned about static varibles in C.
+2. Learned about how to stop cheeky SEGFAULTS and memory leaks.
+3. Learned about scripting to test programmes.
+4. Learned how to handle file descriptors.

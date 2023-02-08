@@ -35,3 +35,4 @@ int	main()
 `-0.*0-9`
 
 ##### my jurney:
+1. I learned about creating maps function pointer array.

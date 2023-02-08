@@ -1,12 +1,36 @@
 # minishell
 
-First of all thank you Dustin for doing this project with me!
+minishell is a mini bash or zsh. It can handle complex pipelines. It uses an AST. It can handle
+redirections, pipes, env, and signals like ctrl+ c, cltr + d, ctrl + \. It has some builtins. It has a 
+command history. 
 
-it can handel pipes up to 255, here docs, redirections < >
-built ins: cd, echo, export, unset
+##### To use minishell
 
-Well before hand I was quit akward in shell and as Dustin said: "This is when you really start to live in the shell". Not sure if he ment it but it was kind of true.
+```sh
+apt-get install libreadline-dev
+git clone
+make
+./minishell
+```
 
-Its my own `minibash/minizsh`. Its the most shit code we have writen. Ever. But I learned a lot about how the shell works.
+##### Example
+```sh
+ls -la
+ls -la | cat -n
+cat << EOF
+echo "hi" > test.text
+echo "hihi" >> test.text
+echo $USER
+env
+export X=123
+cd /
+```
 
-
+##### my jurney:
+1. Learned about the `fork`, `execv`, `waitpid`, signal.
+2. Learned how a shell works.
+3. Learned how to make a fork bomb. ;)
+4. Learned to feel comfortable in a linux shell. :D
+5. Learned how to make a complex piple line to do my biding.
+6. Learned how to work with a team m8.
+7. Learned how to work with git in a team.

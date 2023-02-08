@@ -36,3 +36,7 @@ int	main()
 
 ##### my jurney:
 1. I learned about creating maps function pointer array.
+2. I learned how to write a more complicated C program.
+3. Learned how to free memory in case of an error.
+4. Learned about `va_list` or variadic lists.
+5. Learned a lot about printf.

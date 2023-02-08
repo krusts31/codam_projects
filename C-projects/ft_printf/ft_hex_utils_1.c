@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdlib.h>
 
 int	ft_no_minuss_dot(t_print *p, t_list1 *f)
 {

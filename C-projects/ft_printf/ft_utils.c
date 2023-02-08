@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <unistd.h>
+#include <stdlib.h>
 
 void	ft_cs_st(t_print *p, va_list va)
 {

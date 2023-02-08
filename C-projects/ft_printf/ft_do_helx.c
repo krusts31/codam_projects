@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <limits.h>
 
 static int	ft_continue_helx(t_list1 *info, va_list va, t_print *p)
 {

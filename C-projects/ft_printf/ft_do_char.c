@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <limits.h>
+#include <stdlib.h>
 
 static int	ft_print_res(t_list1 *info, t_print *p)
 {

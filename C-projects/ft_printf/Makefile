@@ -31,7 +31,7 @@ $(NAME): $(SRC_OBJ)
 	ar rcs $@ $^
 
 %.o: %.c $(HEADER) 
-	$(CC) -c $(CFLAGS) $< -o $@
+	$(CC) -c $(CFLAGS) -I ./libft $< -o $@
 
 do:
 	gcc -o a.out $(CFLAGS) main.c -L . -lftprintf

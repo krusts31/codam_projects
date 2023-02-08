@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <limits.h>
 
 int			ft_hex_zero(t_print *p, t_list1 *info)
 {

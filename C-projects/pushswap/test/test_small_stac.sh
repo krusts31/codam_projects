@@ -26,18 +26,18 @@ SEGFAULT=0
 echo "3 dig"
 while read -r LINE
 do
-	./push_swap $LINE | wc -l
+	../push_swap $LINE | wc -l
 done < $INPUT
 echo "4 dig"
 while read -r LINE
 do
 	echo $LINE
-	./push_swap $LINE | wc -l
+	../push_swap $LINE | wc -l
 done < $INPUT_1
 
 echo "5 dig"
 while read -r LINE
 do
 	echo $LINE
-	./push_swap $LINE | wc -l
+	../push_swap $LINE | wc -l
 done < $INPUT_2

@@ -39,12 +39,10 @@ void	radix_sort(int size, t_stack **numbers)
 	t_stack	*a;
 	t_stack	*b;
 	int		index;
-	int		max_bits;
 
 	index = 0;
 	a = *numbers;
 	b = NULL;
-	max_bits = get_max_bits(a);
 	while (is_sorted(a) == false)
 	{
 		radix_sort_2(index, &a, &b, size);

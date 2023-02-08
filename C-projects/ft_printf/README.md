@@ -1,7 +1,9 @@
 # ft_printf
 
 conversions:
-`dcspiuxX%
+
+`dcspiuxX%`
 
 flags:
+
 `-0.*0-9`

@@ -1,32 +1,7 @@
 # ft_printf
 
 conversions:
-> d
->
-> c
->
-> s
->
-> p
->
-> i
->
-> u
->
-> x
->
-> X
->
-> %
+`dcspiuxX%
 
 flags:
-
-> -
->
-> 0
->
-> .
->
-> *
->
-> 0-9
+`-0.*0-9`

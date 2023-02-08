@@ -3,7 +3,7 @@
 #                                                         ::::::::             #
 #    Makefile                                           :+:    :+:             #
 #                                                      +:+                     #
-#    By: alkrusts <alkrust@student.codam.nl>          +#+                      #
+#    By: alkrusts <alkrusts@student.codam.nl>          +#+                     #
 #                                                    +#+                       #
 #    Created: 2020/11/14 16:50:00 by alkrusts      #+#    #+#                  #
 #    Updated: 2020/12/07 18:13:01 by alkrusts      ########   odam.nl          #
@@ -31,10 +31,10 @@ $(NAME): $(SRC_OBJ)
 	ar rcs $@ $^
 
 %.o: %.c $(HEADER) 
-	$(CC) -c $(CFLAGS) $< -o $@ -g 
+	$(CC) -c $(CFLAGS) $< -o $@
 
 do:
-	gcc -g -o a.out main.c -L . -lftprintf
+	gcc -o a.out $(CFLAGS) main.c -L . -lftprintf
 
 clean:
 	make clean -C libft 

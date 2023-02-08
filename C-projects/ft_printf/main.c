@@ -15,10 +15,8 @@
 int main(void)
 {
 	int t;
-	char c;
 	int	ret;
 
-	c = 'a';
 	t = 50;
 ret =	ft_printf("p0 % .3s\n", "cccc");
 ret =	ft_printf("pp %.50d\n", 10000);
@@ -233,4 +231,5 @@ ret =	ft_printf("neg11 %*.*d\n", -15586, 15, 0);
 ret =	ft_printf("***************%*s%*d**************%*u*************", 10, "coucou", 10, 10, -50, 20);
 ret =	ft_printf("taaa %100s\n", "hello");
 	ft_printf("|%5c|\n", '\0');
+	ft_printf("%d", ret);
 }

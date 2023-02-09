@@ -1,5 +1,5 @@
 CPPFLAGS = -Wall -Werror -Wextra
-COMPAILER = clang++
+COMPAILER = c++
 NAME = a.out
 SRC = main.cpp Fixed.class.cpp
 all: $(NAME)

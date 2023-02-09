@@ -44,7 +44,7 @@ NinjaTrap & NinjaTrap::operator=(NinjaTrap const & src)
 	return (*this);
 }
 
-NinjaTrap::NinjaTrap(NinjaTrap const & src)
+NinjaTrap::NinjaTrap(NinjaTrap const & src): ClapTrap()
 {
 	*this = src;
 	return ;

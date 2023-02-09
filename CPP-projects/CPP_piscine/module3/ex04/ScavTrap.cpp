@@ -26,7 +26,7 @@ ScavTrap::~ScavTrap()
 	return ;
 }
 
-ScavTrap::ScavTrap(ScavTrap const & src)
+ScavTrap::ScavTrap(ScavTrap const & src): ClapTrap()
 {
 	*this = src;
 	return ;

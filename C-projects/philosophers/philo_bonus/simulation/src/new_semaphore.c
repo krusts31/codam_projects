@@ -16,6 +16,7 @@
  *	that will prevent any previus value issues
  */
 
+#include <fcntl.h>           /* For O_* constants */
 #include <semaphore.h>
 #include <stdlib.h>
 #include <stdio.h>

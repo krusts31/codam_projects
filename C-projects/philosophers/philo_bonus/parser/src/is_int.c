@@ -15,14 +15,10 @@
 
 bool	is_int(const char *argv)
 {
-	int			negative;
 	long int	res;
 
-	negative = 1;
 	res = 0;
 	argv = skip_spaces(argv);
-	if (*argv == '-')
-		negative = -1;
 	if (*argv == '-' || *argv == '+')
 		argv++;
 	while (*argv)

@@ -20,6 +20,7 @@ HEADER := ../inc
 CC := gcc
 
 FLAGS = -Wall -Wextra -Werror -I $(HEADER)
+FLAGS += -fsplit-stack
 #for failing
 #FLAGS += -D PTHREAD_CREATE_COUNT=0
 

@@ -30,6 +30,7 @@ MOD_NAME += ./simulation/libsimulation.a
 CC := gcc
 
 FLAGS = -Wall -Wextra -Werror -I $(HEADER)
+FLAGS += -fsplit-stack
 #to support tail recursoin! :)
 
 C_THREAD := -fsanitize=thread -g

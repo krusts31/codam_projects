@@ -1,5 +1,5 @@
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic
-COMPAILER = clang++
+COMPAILER = c++
 NAME = replace
 SRC = main.cpp
 all: $(NAME)

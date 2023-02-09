@@ -1,6 +1,6 @@
 NAME = ft_Cat 
 CFLAGS = -Wall -Werror -Wextra
-COMP = clang++
+COMP = c++
 
 SRC = main.cpp Cat.cpp
 

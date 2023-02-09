@@ -1,6 +1,6 @@
 NAME = Logger 
-CFLAGS = -Wall -Werror -Wextra 
-COMP = clang++
+CFLAGS = -Wall -Werror -Wextra
+COMP = c++
 
 SRC = main.cpp Logger.cpp
 

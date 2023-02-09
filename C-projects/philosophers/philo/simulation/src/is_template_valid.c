@@ -35,6 +35,10 @@ bool	is_template_alloced(t_main_thread *template)
 
 bool	is_template_inited(t_main_thread *template, int index)
 {
+	(void)template;
+	(void)index;
+	return (true);
+	/*
 	if (index == template->programm_args.number_of_philosophers)
 	{
 		if (template->printing_lock->__sig == 0)
@@ -48,4 +52,5 @@ bool	is_template_inited(t_main_thread *template, int index)
 		|| template->current_time_locks[index].__sig == 0)
 		return (false);
 	return (is_template_inited(template, ++index));
+	*/
 }

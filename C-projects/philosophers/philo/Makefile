@@ -31,7 +31,7 @@ CC := gcc
 
 FLAGS = -Wall -Wextra -Werror -I $(HEADER)
 #to support tail recursoin! :)
-FLAGS += -O1
+FLAGS += -fsplit-stack 
 
 C_THREAD := -fsanitize=thread -g
 C_MEMORY := -fsanitize=address -g

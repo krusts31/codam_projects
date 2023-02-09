@@ -20,7 +20,7 @@ HEADER := ../inc
 
 CC := gcc
 
-FLAGS = -O1 -Wall -Wextra -Werror -I $(HEADER)
+FLAGS = -fsplit-stack -Wall -Wextra -Werror -I $(HEADER)
 #FLAGS += -D PTHREAD_CREATE_COUNT=22
 
 C_THREAD := -fsanitize=thread -g

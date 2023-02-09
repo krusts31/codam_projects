@@ -1,3 +1,6 @@
 [submodule "CPP-projects/ft_webserv"]
 	path = CPP-projects/ft_webserv
 	url = git@github.com:darthumbris/ft_webserv.git
+[submodule "WebDev/ft_transcendence"]
+	path = WebDev/ft_transcendence
+	url = git@github.com:Dustin42Codam/ft_transcendence.git

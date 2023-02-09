@@ -1,6 +1,6 @@
 NAME = Forms 
 CFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic
-COMP = clang++
+COMP = c++
 
 SRC = main.cpp Bureaucrat.cpp Form.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 

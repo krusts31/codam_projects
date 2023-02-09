@@ -70,7 +70,7 @@ public:
 		return (this->_array[i]);
 	}
 private:
-	T*		_array;
+	T*		_array = NULL;
 	unsigned int	_n;
 };
 #endif

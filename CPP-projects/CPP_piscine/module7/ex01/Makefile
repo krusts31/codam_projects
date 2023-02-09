@@ -1,10 +1,8 @@
 NAME = iter 
 CFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic
-COMP = clang++
+COMP = c++
 
 SRC = iter.cpp
-
-#test.cpp test1.cpp
 
 SRCO = $(SRC:.cpp=.o)
 

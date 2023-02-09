@@ -1,6 +1,6 @@
 NAME =  serialize
-CFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic 
-COMP = clang++
+CFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic
+COMP = c++
 
 SRC = main.cpp
 

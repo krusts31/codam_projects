@@ -32,9 +32,6 @@ int	main(int argc, char **argv)
 		s = ss.str();
 		found = s.find(".");
 		s = s.substr(0, found);
-		unsigned long	index;
-
-		index = 0;
 		number = atoi(s.c_str());
 		if (isprint(*argv[1]) && 1 == input.length() && !isdigit(*argv[1]))
 		{

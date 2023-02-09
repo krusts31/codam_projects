@@ -38,12 +38,15 @@ void	gen_int(int	&num)
 	}
 }
 
-void	*serialize(void)
+char	*serialize(void)
 {
 	char	*data = new(std::nothrow) char[16 + sizeof(int)];
 
 	if (!data)
+	{
+		delete[] data;
 		throw ("Failed to allocate memory!");
+	}
 	gen_random_alphanum(data, 8);
 	gen_int(*reinterpret_cast<int *>(data + 8));
 	gen_random_alpha(data + 8 + sizeof(int), 8);
@@ -54,7 +57,11 @@ Data	*deserialize(void *raw)
 {
 	Data *data = new Data();
 	if (!data)
+	{
+		delete data;
 		throw ("Failed to allocate memory!");
+	}
+
 	char *c = reinterpret_cast<char *>(raw);
 
 	data->s1 = std::string(c, 8);
@@ -66,19 +73,20 @@ Data	*deserialize(void *raw)
 
 int	main()
 {
-	void	*ptr;
+	char	*ptr;
 	Data	*data;
 	srand(time(0));
 
 	try
 	{
 		ptr = serialize();
-		std::cout << "this is the serialized value: " << ptr << std::endl;
-		data = deserialize(ptr);
+		std::cout << "this is the serialized value: " << (void *)ptr << std::endl;
+		data = deserialize((void *)ptr);
 		std::cout << "this us the deseialized first string: " << data->s1 << std::endl;
 		std::cout << "this us the deseialized number: " << data->n << std::endl;
 		std::cout << "this us the deseialized string: " << data->s2 << std::endl;
-		delete data;	
+		delete data;
+		delete[] ptr;
 	}
 	catch(std::exception const &e)
 	{

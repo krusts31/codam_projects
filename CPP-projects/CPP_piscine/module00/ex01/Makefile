@@ -1,5 +1,5 @@
 CPPFLAGS = -Wall -Werror -Wextra
-COMPAILER = clang++
+COMPAILER = c++
 NAME = phonebook
 SRC = info.class.cpp contact.class.cpp main.cpp
 all: $(NAME)

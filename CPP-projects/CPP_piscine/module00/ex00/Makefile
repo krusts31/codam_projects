@@ -1,5 +1,5 @@
-CPPFLAGS = -Wall -Werror -Wextra
-COMPAILER = clang++
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98
+COMPAILER = c++
 NAME = megaphone
 SRC = megaphone.cpp
 

@@ -7,7 +7,7 @@
 I have tried a bit of `java, php, python` before this, but I did not get how OOP worked, what was that `object.` syntax about and what the hell is a constructor it all just seamd uncomprehandable and I could not really reason about the code I was copying from the internet. Well after the CPP modules I understood the baisics of OOP quit well. :)
 
 What I leared:
-Module00
+##### Module00
 1. std::cout` and `std::endl`.
 2. Contrstrucotr and deconstructos.
 3. getters, setters.
@@ -15,7 +15,7 @@ Module00
 5. Class `namespace`.
 6. const functions.
 7. hpp, cpp files.
-Module01
+##### Module01
 1. Member functions.
 2. `this`.
 3. Creating objects on stack vs heap.
@@ -23,23 +23,28 @@ Module01
 5. init list.
 6. `refrences` vs `pointers`.
 7. new [], delete []
-Module02
+##### Module02
 1. Fixed point vs `float`
 2. operator overloads
-Module03
+##### Module03
 1. Canonical form.
 2. Inheritance.
 3. Dimond inheritance.
-Module04
+##### Module04
 1. Virtual deconstroucors.
 2. Abstract class.
 3. Hidding the defualt contructor.
 4. Interfaces.
 5. Pure functions.
 6. Deep copy vs shallow copy.
-Module05
+##### Module05
 1. C++ exceptions.
-Module06
+##### Module06
 1. `static_cast`
 2. `reinterpret_cast`.
 3. `dynamic_cast`.
+##### Module07
+1. templates.
+2. iterators.
+##### Module08
+1. introduction to `stl`

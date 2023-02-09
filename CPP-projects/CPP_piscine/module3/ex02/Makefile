@@ -1,6 +1,6 @@
 NAME = ClapTrap
 CFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic
-COMP = clang++
+COMP = c++
 
 SRC = main.cpp FragTrap.cpp ScavTrap.cpp ClapTrap.cpp
 

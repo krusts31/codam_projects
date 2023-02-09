@@ -27,13 +27,6 @@ public:
 	Squad & operator=(Squad const & src);
 private:
 
-	t_container	*_marines;
+	t_container	*_marines = NULL;
 };
 #endif
-
-
-
-
-
-
-

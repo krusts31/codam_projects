@@ -1,6 +1,6 @@
 NAME = DOOM 
-CFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic 
-COMP = clang++
+CFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic
+COMP = c++
 
 SRC = AWeapon.cpp  Character.cpp  Enemy.cpp  main.cpp  PlasmaRifle.cpp  PowerFist.cpp  RadScorpion.cpp  SuperMutant.cpp Meseeks.cpp Railgun.cpp
 

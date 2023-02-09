@@ -2,7 +2,6 @@
 #include <iostream>
 Squad::Squad()
 {
-	this->_marines = NULL;
 	return ;
 }
 
@@ -74,7 +73,7 @@ int	Squad::push(ISpaceMarine *unit)
 {
 	t_container	*forUse;
 
-	forUse = this->_marines;					//	this->_marines will point the begging of the list and we will use a pointer to add a node to the end
+	forUse = this->_marines;
 	if (unit != NULL && Original(unit, forUse) == true)
 	{
 		if (this->_marines != NULL)
@@ -107,17 +106,14 @@ bool	Squad::Original(ISpaceMarine *unit, t_container *forUse) const
 
 void	Squad::deleteMar()
 {
-	t_container	*hold;
-	int		x;
+	t_container	*tmp;
 
-	x = getCount();
-	while (x > 0)
+	while (this->_marines)
 	{
 		delete (this->_marines->unit);
-		hold = this->_marines;
-		this->_marines = this->_marines->next;
-		delete (hold);
-		x--;
+		tmp = this->_marines->next;
+		delete (this->_marines);
+		this->_marines = tmp;
 	}
 	this->_marines = NULL;
 	return ;

@@ -1,6 +1,6 @@
 NAME = Magic 
-CFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic 
-COMP = clang++
+CFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic
+COMP = c++
 
 SRC = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp 
 

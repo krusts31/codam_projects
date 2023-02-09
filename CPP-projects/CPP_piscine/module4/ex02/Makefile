@@ -1,6 +1,6 @@
 NAME = STARWARS 
-CFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic
-COMP = clang++
+CFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic -g -fsanitize=address
+COMP = c++
 
 SRC = main.cpp  Squad.cpp  TacticalMarine.cpp AssaultTerminator.cpp 
 

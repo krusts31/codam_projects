@@ -1,6 +1,6 @@
 NAME = Wizzard
 CFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic
-COMP = clang++
+COMP = c++
 
 SRC = main.cpp Sorcerer.cpp Victim.cpp Peon.cpp
 

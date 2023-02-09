@@ -1,6 +1,6 @@
 NAME = easyFind 
 CFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic
-COMP = g++
+COMP = c++
 
 SRC = main.cpp 
 

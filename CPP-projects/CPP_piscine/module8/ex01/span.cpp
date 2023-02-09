@@ -36,10 +36,11 @@ unsigned int	span::shortestSpan(void)
 	std::vector<int>::const_iterator it2;
 	std::vector<int>::const_iterator next;
 
-	it2 = this->_N.begin();
-	for (; it2 < this->_N.end(); it2++)
+	for (it2 = this->_N.begin(); it2 < this->_N.end(); it2++)
 	{
 		next = it2 + 1;
+		if (next == this->_N.end())
+			break ;
 		hold.push_back(*it2);
 		hold.push_back(*next);
 		int min = *min_element(hold.begin(), hold.end());

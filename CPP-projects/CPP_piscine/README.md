@@ -1,12 +1,12 @@
 # CPP modules
 
-##### this is where I learned the baisics of CPP
+##### this is where I learned the basics of CPP
 
 ### My journey
 
-I have tried a bit of `java, php, python` before this, but I did not get how OOP worked, what was that `object.` syntax about and what the hell is a constructor it all just seamd uncomprehandable and I could not really reason about the code I was copying from the internet. Well after the CPP modules I understood the baisics of OOP quit well. :)
+I have tried a bit of `java, php, python` before this, but I did not get how OOP worked, what was that `object.` syntax about and what the hell is a constructor it all just seemed uncomprehensible and I could not really reason about the code I was copying from the internet. Well after the CPP modules I understood the basics of OOP quite well. :)
 
-What I leared:
+What I learned:
 ##### Module00
 1. std::cout` and `std::endl`.
 2. Contrstrucotr and deconstructos.
@@ -21,7 +21,7 @@ What I leared:
 3. Creating objects on stack vs heap.
 4. `delete` to free new.
 5. init list.
-6. `refrences` vs `pointers`.
+6. `references` vs `pointers`.
 7. new [], delete []
 ##### Module02
 1. Fixed point vs `float`
@@ -33,7 +33,7 @@ What I leared:
 ##### Module04
 1. Virtual deconstroucors.
 2. Abstract class.
-3. Hidding the defualt contructor.
+3. Hidding the default constructor.
 4. Interfaces.
 5. Pure functions.
 6. Deep copy vs shallow copy.

@@ -4,7 +4,7 @@
 
 ### My journey
 
-I have tried a bit of `java, php, python` before this, but I did not get how OOP worked, what was that `object.` syntax about and what the hell is a constructor it all just seemed uncomprehensible and I could not really reason about the code I was copying from the internet. Well after the CPP modules I understood the basics of OOP quite well. :)
+I have tried a bit of `java, php, python` before this, but I did not get how OOP worked, what was that `object.` syntax about and what the hell is a constructor it all just seemed incomprehensible and I could not really reason about the code I was copying from the internet. Well after the CPP modules I understood the basics of OOP quite well. :)
 
 What I learned:
 ##### Module00
@@ -22,10 +22,10 @@ What I learned:
 4. `delete` to free new.
 5. init list.
 6. `references` vs `pointers`.
-7. new [], delete []
+7. new [], delete [].
 ##### Module02
-1. Fixed point vs `float`
-2. operator overloads
+1. Fixed point vs `float`.
+2. operator overloads.
 ##### Module03
 1. Canonical form.
 2. Inheritance.
@@ -40,11 +40,11 @@ What I learned:
 ##### Module05
 1. C++ exceptions.
 ##### Module06
-1. `static_cast`
+1. `static_cast`.
 2. `reinterpret_cast`.
 3. `dynamic_cast`.
 ##### Module07
 1. templates.
 2. iterators.
 ##### Module08
-1. introduction to `stl`
+1. introduction to `stl`.

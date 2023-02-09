@@ -1,7 +1,7 @@
-FROM alpine:3.17.1
+FROM ubuntu:22.04
 
-RUN apk add --no-cache build-base \
-	readline-dev
+RUN apt-get update && apt-get install -y build-essential \
+	libreadline-dev
 
 COPY ./libft ./libft
 COPY ./ft_printf ./ft_printf

@@ -1,0 +1,3 @@
+[submodule "CPP-projects/ft_webserv"]
+	path = CPP-projects/ft_webserv
+	url = git@github.com:darthumbris/ft_webserv.git

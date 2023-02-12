@@ -8,11 +8,13 @@ if [ ! -f "/var/www/html/wp-config.php" ]; then
 	wp plugin delete $(wp plugin list --status=inactive --field=name --allow-root) --allow-root 
 	wp theme delete $(wp theme list --status=inactive --field=name --allow-root) --allow-root  
 	wp plugin update --all --allow-root
+	wp plugin install "WP Super Cache" --allow-root
+	wp plugin activate "wp-super-cache" --allow-root
+	sed -i "27s/.*/define( 'FTP_USER', '$VSFPTD_USER');/" ./wp-config.php
+	sed -i "30s/.*/define( 'FTP_PASS', '$VSFPTD_PASSWORD');/" ./wp-config.php
+	sed -i "33s/.*/define( 'FTP_HOST', '$VSFPTD_HOST');/" ./wp-config.php
 	sed -i "36s/.*/define( 'WP_SITEURL', 'https:\/\/localhost\/');/" ./wp-config.php
 	sed -i "39s/.*/define( 'WP_HOME', 'https:\/\/localhost\/');/" ./wp-config.php
-	#echo "define( 'FTP_USER', '$VSFPTD_USER' ); ">> wp-config.php
-	#echo "define( 'FTP_PASS', '$VSFPTD_PASSWORD' ); ">> wp-config.php
-	#echo "define( 'FTP_HOST', '$VSFPTD_HOST'); ">> wp-config.php
 fi
 
 exec /usr/sbin/php-fpm82 -F -R

@@ -8,7 +8,7 @@ docker run -it -p 80:80 -p 443:443 ft_server
 ```
 ##### wordpress ->
 https://localhost/wp/
-##### wordpress ->
+##### phpmyadmin ->
 https://localhost/phpmyadmin/
 
 This is a single container with `wordpress`, `mariadb`, `phpmyadmin`, `nginx`.

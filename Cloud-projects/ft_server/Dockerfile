@@ -52,14 +52,14 @@ RUN openrc && \
 	echo "" > /run/openrc/softlevel && \
 	/etc/init.d/mariadb setup && \
 	rc-service mariadb start && \
-	echo "GRANT ALL PRIVILEGES ON *.* TO 'alkrusts'@'localhost' IDENTIFIED BY 'password';" | mysql -u root && \
+	echo "GRANT ALL PRIVILEGES ON *.* TO 'user'@'localhost' IDENTIFIED BY 'password';" | mysql -u root && \
 	echo "FLUSH PRIVILEGES" | mysql -u root && \
 	wp core download --path=/var/www/html/wp && \
-	wp config create --path=/var/www/html/wp --dbname=wordpress --dbuser=alkrusts --dbpass=password && \
+	wp config create --path=/var/www/html/wp --dbname=wordpress --dbuser=user --dbpass=password && \
 	sed -i "36s/.*/define( 'WP_SITEURL', 'https:\/\/localhost\/wp');/" /var/www/html/wp/wp-config.php && \
 	sed -i "39s/.*/define( 'WP_HOME', 'https:\/\/localhost\/wp');/" /var/www/html/wp/wp-config.php && \
 	wp db create --path=/var/www/html/wp && \
-	wp core install --path=/var/www/html/wp --url="/" --title="hello world" --admin_user="alkrusts" --admin_password="password" --admin_email="walave4776@ngopy.com" && \
+	wp core install --path=/var/www/html/wp --url="/" --title="hello world" --admin_user="user" --admin_password="password" --admin_email="walave4776@ngopy.com" && \
 	wp plugin install --path=/var/www/html/wp "WP Mail SMTP" && \
 	wp plugin install --path=/var/www/html/wp "WP Super Cache" && \
 	wp plugin activate --path=/var/www/html/wp "wp-super-cache" && \

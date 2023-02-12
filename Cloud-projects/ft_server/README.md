@@ -6,6 +6,10 @@
 docker build -t ft_server .
 docker run -it -p 80:80 -p 443:443 ft_server
 ```
+
+#### username: user
+#### password: password
+
 ##### wordpress ->
 https://localhost/wp/
 ##### phpmyadmin ->

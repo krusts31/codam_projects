@@ -38,7 +38,7 @@ RUN chmod +x wp-cli.phar && \
 	mv wp-cli.phar /usr/bin/wp && \
 	mkdir -p /var/www/html/phpmyadmin
 
-RUN tar xvf phpMyAdmin-latest-all-languages.tar.gz -C /var/www/html/ && \
+RUN tar xvf phpMyAdmin-latest-all-languages.tar.gz --strip-components 1 -C /var/www/html/phpmyadmin && \
 	rm -rf phpMyAdmin-latest-all-languages.tar.gz
 
 RUN openssl genrsa -aes256 -passout pass:xxxx -out ca.pass.key 4096 && \
@@ -48,7 +48,6 @@ RUN openssl genrsa -aes256 -passout pass:xxxx -out ca.pass.key 4096 && \
 	mv ca.key /etc/ssl && \
 	mv ca.pem /etc/ssl
 
-#	echo 'rc_provide="loopback net"' >> /etc/rc.conf && \
 RUN openrc && \
 	echo "" > /run/openrc/softlevel && \
 	/etc/init.d/mariadb setup && \
@@ -60,17 +59,17 @@ RUN openrc && \
 	sed -i "36s/.*/define( 'WP_SITEURL', 'https:\/\/localhost\/wp');/" /var/www/html/wp/wp-config.php && \
 	sed -i "39s/.*/define( 'WP_HOME', 'https:\/\/localhost\/wp');/" /var/www/html/wp/wp-config.php && \
 	wp db create --path=/var/www/html/wp && \
-	wp core install --path=/var/www/html/wp --url="/" --title="hello world" --admin_user="alkrusts" --admin_password="password" --admin_email="alkrusts@student.codam.nl" && \
+	wp core install --path=/var/www/html/wp --url="/" --title="hello world" --admin_user="alkrusts" --admin_password="password" --admin_email="walave4776@ngopy.com" && \
 	wp plugin install --path=/var/www/html/wp "WP Mail SMTP" && \
 	wp plugin install --path=/var/www/html/wp "WP Super Cache" && \
 	wp plugin activate --path=/var/www/html/wp "wp-super-cache" && \
 	wp plugin activate --path=/var/www/html/wp "wp-mail-smtp" && \
 	wp plugin delete --path=/var/www/html/wp $(wp --path=/var/www/html/wp plugin list --status=inactive --field=name) && \ 
-	wp theme delete --path=/var/www/html/wp $(wp --path=/var/www/html/wp theme list --status=inactive --field=name)&& \
+	wp theme delete --path=/var/www/html/wp $(wp --path=/var/www/html/wp theme list --status=inactive --field=name) && \
 	mariadb -e "USE wordpress;UPDATE wp_options SET option_value='https://localhost/wordpress' WHERE option_name='siteurl' OR option_name='home';"
 
-COPY ./ft_server_srcs/local.conf /etc/nginx/http.d/default.conf
-COPY ./ft_server_srcs/www.conf /etc/php82/php-fpm.d/www.conf
+COPY ./local.conf /etc/nginx/http.d/default.conf
+COPY ./www.conf /etc/php82/php-fpm.d/www.conf
 COPY ./start.sh ./start.sh
 
 ENTRYPOINT ["/bin/sh", "start.sh"]

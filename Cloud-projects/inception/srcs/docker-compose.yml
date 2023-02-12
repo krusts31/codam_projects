@@ -1,4 +1,4 @@
-version: "3"
+version: '2.4'
 
 services:
 
@@ -15,19 +15,19 @@ services:
     ports:
       - "443:443"
     volumes:
-      - wordpress_vol:/var/www/html
+      - ./wordpress_vol/:/var/www/html/:delegated
 
   wordpress:
     restart: always
     image: wordpress
     container_name: wordpress
     depends_on:
-      - vsftpd
-      - mariadb
+      mariadb:
+        condition: service_healthy
     hostname: wordpress
     build: requirements/wordpress
     volumes:
-      - wordpress_vol:/var/www/html
+      - ./wordpress_vol/:/var/www/html/:delegated
     networks:
       - inception
     environment:
@@ -55,7 +55,7 @@ services:
     hostname: mariadb
     image: mariadb
     volumes:
-      - mariadb_vol:/var/lib/mysql
+      - ./mairdb_vol/:/var/lib/mysql/:delegated
     build: requirements/mariadb
     networks:
       - inception
@@ -64,6 +64,12 @@ services:
       MARIADB_USER_PASSWORD:     ${MARIADB_USER_PASSWORD}
       WORDPRESS_DATABASE_NAME:   ${WORDPRESS_DATABASE_NAME}
       MARIADB_ROOT_PASSWORD:     ${MARIADB_ROOT_PASSWORD}
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "--silent", "-uroot", "-p${MARIADB_ROOT_PASSWORD}"]
+      interval: 5s
+      retries: 5
+      start_period: 5s
+      timeout: 3s
 
   vsftpd:
     restart: always
@@ -72,9 +78,11 @@ services:
     hostname: vsftpd
     build: requirements/bonus/vsftpd
     volumes:
-      - wordpress_vol:/var/www/html
+      - ./wordpress_vol/:/var/www/html/:delegated
     networks:
       - inception
+    depends_on:
+      - wordpress
     environment:
       VSFPTD_USER:               ${VSFPTD_USER}
       VSFPTD_PASSWORD:           ${VSFPTD_PASSWORD}
@@ -86,19 +94,3 @@ networks:
   inception:
     driver: bridge
     name: inception
-
-volumes:
-  wordpress_vol:
-    driver: local
-    name: wordpress_vol
-    driver_opts:
-      type: none 
-      o: bind
-      device: '${HOME}/data/wordpress'
-  mariadb_vol:
-    driver: local
-    name: maraidb_vol
-    driver_opts:
-      type: none 
-      o: bind
-      device: '${HOME}/data/mariadb'

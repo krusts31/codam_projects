@@ -16,4 +16,4 @@ jobs:
       # Build the hello world image
       - run:
           name: Build Docker image
-          command: docker build --tag helloworld .
+          command: docker build -t libft ./C-projects/

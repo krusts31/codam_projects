@@ -13,7 +13,10 @@ jobs:
       # Set up a separate Docker environment to run `docker` commands in
       - setup_remote_docker
 
-      # Build the hello world image
       - run:
           name: Build Docker image
-          command: docker build -t libft ./C-projects/
+          command: docker build -t c-projects-test ./C-projects/ --target test
+
+      - run:
+          name: Run Docker image
+          command: docker run c-projects-test

@@ -17,9 +17,15 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
+  libft:
+    docker:
+      - image: C-projects/libft/Dockerfile
+    steps:
+      - checkout
+      - run:
+          name: "Testing libft"
+          command: "make" 
 
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   say-hello-workflow:
     jobs:

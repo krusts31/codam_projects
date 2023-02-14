@@ -1,0 +1,19 @@
+version: 2.1
+
+jobs:
+  build:
+    # Use `docker:stable` as the Docker container to run this job in
+    docker:
+      - image: docker:stable
+
+    steps:
+      # Checkout the repository files
+      - checkout
+
+      # Set up a separate Docker environment to run `docker` commands in
+      - setup_remote_docker
+
+      # Build the hello world image
+      - run:
+          name: Build Docker image
+          command: docker build --tag helloworld .

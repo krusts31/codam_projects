@@ -12,6 +12,7 @@ ls ft_printf/libftprintf.a libft/libft.a philosophers/philo/philo philosophers/p
 
 if [ $? -eq 0 ]; then
 	echo -e "\033[0;32msuccess compliling\033[0m"
+	return 1
 else
 	echo -e "\033[0;31mfailed compiling\033[0m"
 	return 1

@@ -1,4 +1,5 @@
 #testing if everting complies
+
 gcc get_next_line/get_next_line.c get_next_line/get_next_line_utils.c get_next_line/main.c -I get_next_line -o get_next_line/gnl
 make -C libft
 make -C libft bonus
@@ -12,7 +13,6 @@ ls ft_printf/libftprintf.a libft/libft.a philosophers/philo/philo philosophers/p
 
 if [ $? -eq 0 ]; then
 	echo -e "\033[0;32msuccess compliling\033[0m"
-	exit 1
 else
 	echo -e "\033[0;31mfailed compiling\033[0m"
 	exit 1

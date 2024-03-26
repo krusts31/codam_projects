@@ -57,6 +57,44 @@ int	draw_back_ground(void *img, t_task *task)
 **	draw_back_ground is the function that will render the iamge in to buf
 */
 
+
+void ft_hook(void* param)
+{
+	t_data *d = param;
+	mlx_t* mlx = d->mlx;
+
+	if (mlx_is_key_down(mlx, MLX_KEY_ESCAPE))
+	{
+		d->task.curent = d->task.curent - 1;
+		draw_back_ground(&d->img, &d->task);
+		mlx_image_to_window(d->mlx, d->img, 0, 0);
+	}
+	if (mlx_is_key_down(mlx, MLX_KEY_UP))
+	{
+		d->task.curent = d->task.curent + 1;
+		draw_back_ground(&d->img, &d->task);
+		mlx_image_to_window(d->mlx, d->img, 0, 0);
+	}
+	if (mlx_is_key_down(mlx, MLX_KEY_DOWN))
+	{
+		d->task.curent = d->task.curent + 1;
+		draw_back_ground(&d->img, &d->task);
+		mlx_image_to_window(d->mlx, d->img, 0, 0);
+	}
+	if (mlx_is_key_down(mlx, MLX_KEY_LEFT))
+	{
+		d->task.curent = d->task.curent + 1;
+		draw_back_ground(&d->img, &d->task);
+		mlx_image_to_window(d->mlx, d->img, 0, 0);
+	}
+	if (mlx_is_key_down(mlx, MLX_KEY_RIGHT))
+	{
+		d->task.curent = d->task.curent + 1;
+		draw_back_ground(&d->img, &d->task);
+		mlx_image_to_window(d->mlx, d->img, 0, 0);
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_data		data;
@@ -72,6 +110,7 @@ int	main(int argc, char **argv)
 		mlx_image_to_window(data.mlx, data.img, 0, 0);
 	//mlx_loop_hook(data.mlx_win, 2, 1L << 0, hooks, &data);
 	//mlx_loop_hook(data.mlx_win, 17, 1L << 13, close_red, &data);
+	mlx_loop_hook(data.mlx, ft_hook, &data);
 	mlx_loop(data.mlx);
 	return (0);
 }

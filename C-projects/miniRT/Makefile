@@ -153,10 +153,10 @@ endif
 
 HEADER = $(INC)
 
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra 
 
 ifdef DEBUG
-	#CFLAGS += -fsanitize=address -g 
+	CFLAGS += -g -fsanitize=address
 else ifdef FAST
 	CFLAGS += -O3 
 endif
@@ -176,7 +176,7 @@ OBJ_B = $(BONUS_SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): LIBFT LIBMLX $(SRC_OBJ)
-	$(CC) $(SRC_OBJ) $(LIBS) -o $(NAME)
+	$(CC) $(CFLAGS) $(SRC_OBJ) $(LIBS) -o $(NAME)
 
 %.o: %.c
 	$(CC) $(INC) -c $(CFLAGS) $< -o $@ 

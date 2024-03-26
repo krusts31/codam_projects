@@ -34,7 +34,7 @@ SRC = ft_atoi.c ft_isascii.c ft_memmove.c ft_putstr_fd.c \
 OBJ = $(SRC:.c=.o)
 
 ifdef DEBUG
-	CFLAGS =-Wall -Werror -Wextra -g -fsanitize=address
+	CFLAGS =-Wall -Werror -Wextra -g  -fsanitize=address
 else ifdef FAST
 	CFLAGS =-Wall -Werror -Wextra -O3
 else

@@ -65,9 +65,9 @@ void ft_hook(void* param)
 
 	if (mlx_is_key_down(mlx, MLX_KEY_ESCAPE))
 	{
-		d->task.curent = d->task.curent - 1;
-		draw_back_ground(&d->img, &d->task);
-		mlx_image_to_window(d->mlx, d->img, 0, 0);
+		mlx_delete_image(d->mlx, d->img);
+		mlx_terminate(d->mlx);
+		exit(0);
 	}
 	if (mlx_is_key_down(mlx, MLX_KEY_UP))
 	{
@@ -83,7 +83,7 @@ void ft_hook(void* param)
 	}
 	if (mlx_is_key_down(mlx, MLX_KEY_LEFT))
 	{
-		d->task.curent = d->task.curent + 1;
+		d->task.curent = d->task.curent - 1;
 		draw_back_ground(&d->img, &d->task);
 		mlx_image_to_window(d->mlx, d->img, 0, 0);
 	}
@@ -108,9 +108,8 @@ int	main(int argc, char **argv)
 		save_bmp(&data);
 	else
 		mlx_image_to_window(data.mlx, data.img, 0, 0);
-	//mlx_loop_hook(data.mlx_win, 2, 1L << 0, hooks, &data);
-	//mlx_loop_hook(data.mlx_win, 17, 1L << 13, close_red, &data);
 	mlx_loop_hook(data.mlx, ft_hook, &data);
+	mlx_loop_hook(data.mlx, close_red, &data);
 	mlx_loop(data.mlx);
 	return (0);
 }

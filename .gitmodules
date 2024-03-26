@@ -4,3 +4,6 @@
 [submodule "WebDev/ft_transcendence"]
 	path = WebDev/ft_transcendence
 	url = git@github.com:Dustin42Codam/ft_transcendence.git
+[submodule "C-projects/miniRT/libs/MLX42"]
+	path = C-projects/miniRT/libs/MLX42
+	url = https://github.com/codam-coding-college/MLX42.git

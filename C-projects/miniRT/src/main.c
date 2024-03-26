@@ -109,7 +109,6 @@ int	main(int argc, char **argv)
 	else
 		mlx_image_to_window(data.mlx, data.img, 0, 0);
 	mlx_loop_hook(data.mlx, ft_hook, &data);
-	mlx_loop_hook(data.mlx, close_red, &data);
 	mlx_loop(data.mlx);
 	return (0);
 }
